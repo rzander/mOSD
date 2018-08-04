@@ -1,7 +1,5 @@
 # "modern" OS deployment (mOSD)
 "Modern" also means **simplified**, that's why I will give you an example on how to setup Windows 10 with just the original source (ISO) and a few scripts… Like in the "old" days, where unattended setup was the standard way to setup an OS. 
-
-All the files of this "example" are published on: https://github.com/rzander/mOSD
 # Quick Start
 If you want to see **mOSD** (modern OSD) in action, just do:
 
