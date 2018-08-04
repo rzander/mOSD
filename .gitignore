@@ -4,3 +4,5 @@ Win10_Sources/rzTools/RuckZuck.exe
 Win10_Sources/rzTools/oscdimg.exe
 Win10_Sources/Office/setup.exe
 Win10_Sources/sources/$OEM$/$Progs/zander tools/Tools/RZUpdate.exe
+Win10_Sources/sources/$OEM$/$Progs/zander tools/RZUpdate.exe
+Win10_Sources/mOSD.cat

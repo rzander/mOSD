@@ -149,7 +149,7 @@
             <ClearTpm>1</ClearTpm>
         </component>
     </settings>
-     <settings pass="auditUser">
+    <settings pass="auditUser">
         <component name="Microsoft-Windows-Deployment" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" 
             xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" 
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -162,7 +162,7 @@
                 </RunSynchronousCommand>
                 <RunSynchronousCommand wcm:action="add">
                     <Description>Copy Files...</Description>
-                    <Path>powershell.exe -noprofile -command move-item c:\windows\temp\* $env:temp;exit(0)</Path>
+                    <Path>powershell.exe -noprofile -command &quot;move-item -Path c:\windows\temp\* -Destination $env:temp -ea SilentlyContinue;exit(0)&quot;</Path>
                     <Order>2</Order>
                 </RunSynchronousCommand>
                 <RunSynchronousCommand wcm:action="add">

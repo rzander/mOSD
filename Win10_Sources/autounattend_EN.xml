@@ -161,7 +161,7 @@
                 </RunSynchronousCommand>
                 <RunSynchronousCommand wcm:action="add">
                     <Description>Copy Files...</Description>
-                    <Path>powershell.exe -noprofile -command move-item c:\windows\temp\* $env:temp;exit(0)</Path>
+                    <Path>powershell.exe -noprofile -command &quot;move-item -Path c:\windows\temp\* -Destination $env:temp -ea SilentlyContinue;exit(0)&quot;</Path>
                     <Order>2</Order>
                 </RunSynchronousCommand>
                 <RunSynchronousCommand wcm:action="add">
