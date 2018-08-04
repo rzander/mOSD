@@ -19,13 +19,13 @@ Because it's:
 
 * **super fast** (Win10, Office356, 7-Zip, AdobeReader, Chrome, VSCode … in **less than 15min** on a VM)
 * independent
- * loads all files from a local media (USB) and/or internet
- * does not require any Servers -> great for Desaster-Recovery scenarios
- * independent of the OS Build, and Language
+  * loads all files from a local media (USB) and/or internet
+  * does not require any Servers -> great for Desaster-Recovery scenarios
+  * independent of the OS Build, and Language
 * Out of the box
- * useful to reproduce Issues from Corp. Images (without any GPO's etc.)
- * performance benchmarks (compare an OutOfBox W10 vs your corporate W10)
+  * useful to reproduce Issues from Corp. Images (without any GPO's etc.)
+  * performance benchmarks (compare an OutOfBox W10 vs your corporate W10)
 * Easy to create
- * just follow the [Quick Start](Quick Start) guide. 
+  * just follow the [Quick Start](Quick Start) guide. 
 * fully unattended
- * An end user will be able to rebuild a client.
+  * An end user will be able to rebuild a client.
