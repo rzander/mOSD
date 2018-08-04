@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<unattend xmlns="urn:schemas-microsoft-com:unattend">
+    <settings pass="windowsPE">
+        <component name="Microsoft-Windows-International-Core-WinPE" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" 
+            xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" 
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <SetupUILanguage>
+                <UILanguage>en-US</UILanguage>
+            </SetupUILanguage>
+            <InputLocale>0807:00000807</InputLocale>
+            <UILanguage>en-US</UILanguage>
+            <UserLocale>de-CH</UserLocale>
+            <SystemLocale>en-US</SystemLocale>
+        </component>
+        <component name="Microsoft-Windows-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" 
+            xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" 
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <DiskConfiguration>
+                <Disk wcm:action="add">
+                    <CreatePartitions>
+                        <CreatePartition wcm:action="add">
+                            <Order>1</Order>
+                            <Size>300</Size>
+                            <Type>Primary</Type>
+                        </CreatePartition>
+                        <CreatePartition wcm:action="add">
+                            <Order>2</Order>
+                            <Size>100</Size>
+                            <Type>EFI</Type>
+                        </CreatePartition>
+                        <CreatePartition wcm:action="add">
+                            <Order>3</Order>
+                            <Size>128</Size>
+                            <Type>MSR</Type>
+                        </CreatePartition>
+                        <CreatePartition wcm:action="add">
+                            <Order>4</Order>
+                            <Extend>true</Extend>
+                            <Type>Primary</Type>
+                        </CreatePartition>
+                    </CreatePartitions>
+                    <ModifyPartitions>
+                        <!-- Windows RE Tools partition -->
+                        <ModifyPartition wcm:action="add">
+                            <Order>1</Order>
+                            <PartitionID>1</PartitionID>
+                            <Label>WinRE</Label>
+                            <Format>NTFS</Format>
+                            <TypeID>de94bba4-06d1-4d40-a16a-bfd50179d6ac</TypeID>
+                        </ModifyPartition>
+                        <!-- System partition (ESP) -->
+                        <ModifyPartition wcm:action="add">
+                            <Order>2</Order>
+                            <PartitionID>2</PartitionID>
+                            <Label>System</Label>
+                            <Format>FAT32</Format>
+                        </ModifyPartition>
+                        <!-- Windows partition -->
+                        <ModifyPartition wcm:action="add">
+                            <Order>3</Order>
+                            <PartitionID>4</PartitionID>
+                            <Label>Windows</Label>
+                            <Letter>C</Letter>
+                            <Format>NTFS</Format>
+                        </ModifyPartition>
+                    </ModifyPartitions>
+                    <DiskID>0</DiskID>
+                    <WillWipeDisk>true</WillWipeDisk>
+                </Disk>
+                <WillShowUI>OnError</WillShowUI>
+            </DiskConfiguration>
+            <ImageInstall>
+                <OSImage>
+                    <InstallTo>
+                        <DiskID>0</DiskID>
+                        <PartitionID>4</PartitionID>
+                    </InstallTo>
+                    <WillShowUI>OnError</WillShowUI>
+                    <InstallFrom>
+                        <MetaData wcm:action="add">
+                            <Key>/image/name</Key>
+                            <Value>Windows 10 Enterprise</Value>
+                        </MetaData>
+                    </InstallFrom>
+                </OSImage>
+            </ImageInstall>
+            <UserData>
+                <AcceptEula>true</AcceptEula>
+                <ProductKey>
+                    <Key></Key>
+                    <WillShowUI>OnError</WillShowUI>
+                </ProductKey>
+            </UserData>
+        </component>
+    </settings>
+    <settings pass="specialize">
+        <component name="Microsoft-Windows-IE-InternetExplorer" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" 
+            xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" 
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <LocalIntranetSites>*.internal.loc</LocalIntranetSites>
+            <Home_Page>https://www.google.ch</Home_Page>
+            <DisableFirstRunWizard>true</DisableFirstRunWizard>
+        </component>
+        <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" 
+            xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" 
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <TimeZone>W. Europe Standard Time</TimeZone>
+            <RegisteredOrganization>Zander Tools</RegisteredOrganization>
+            <RegisteredOwner>Zander Tools</RegisteredOwner>
+        </component>
+        <component name="Microsoft-Windows-International-Core" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" 
+            xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" 
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <InputLocale>0807:00000807</InputLocale>
+            <SystemLocale>en-US</SystemLocale>
+            <UserLocale>de-CH</UserLocale>
+        </component>
+        <component name="Microsoft-Windows-Deployment" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" 
+            xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" 
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <RunSynchronous>
+                <RunSynchronousCommand wcm:action="add">
+                    <Path>powershell.exe -noprofile -command set-executionpolicy bypass -force</Path>
+                    <Order>1</Order>
+                    <Description>PowerShell Execution Policy...</Description>
+                </RunSynchronousCommand>
+                <RunSynchronousCommand wcm:action="add">
+                    <Path>powershell.exe -noprofile -File c:\windows\setup\scripts\removeapps.ps1</Path>
+                    <Order>2</Order>
+                    <Description>Cleaning preinstalled Apps...</Description>
+                </RunSynchronousCommand>
+                <RunSynchronousCommand wcm:action="add">
+                    <Path>powershell.exe -noprofile -File c:\windows\setup\scripts\StartLayout.ps1</Path>
+                    <Order>3</Order>
+                    <Description>Setting Start-Layout...</Description>
+                </RunSynchronousCommand>
+                <RunSynchronousCommand wcm:action="add">
+                    <Order>4</Order>
+                    <Description>Installing Provisioning Package...</Description>
+                    <Path>powershell.exe -noprofile -File c:\windows\setup\scripts\PolicyPPKG.ps1</Path>
+                    <WillReboot>Never</WillReboot>
+                </RunSynchronousCommand>
+            </RunSynchronous>
+        </component>
+        <component name="Microsoft-Windows-TPM-Tasks" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" 
+            xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" 
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <ClearTpm>1</ClearTpm>
+        </component>
+    </settings>
+    <settings pass="auditUser">
+        <component name="Microsoft-Windows-Deployment" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" 
+            xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" 
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <RunSynchronous>
+                <RunSynchronousCommand wcm:action="add">
+                    <Order>1</Order>
+                    <Path>powershell.exe -noprofile -File c:\windows\setup\scripts\AutoPilot.ps1</Path>
+                    <WillReboot>Never</WillReboot>
+                    <Description>Register AutoPilot...</Description>
+                </RunSynchronousCommand>
+                <RunSynchronousCommand wcm:action="add">
+                    <Description>Copy Files...</Description>
+                    <Path>powershell.exe -noprofile -command move-item c:\windows\temp\* $env:temp;exit(0)</Path>
+                    <Order>2</Order>
+                </RunSynchronousCommand>
+                <RunSynchronousCommand wcm:action="add">
+                    <Description>Installing VCRedist...</Description>
+                    <Path>&quot;%programFiles%\zander tools\RZUpdate.exe&quot; &quot;VCRedist2013x64&quot;;&quot;VCRedist2013x86&quot;;&quot;VCRedist2017x64&quot;;&quot;VCRedist2017x86&quot;;&quot;RuckZuck provider for OneGet&quot;</Path>
+                    <Order>3</Order>
+                </RunSynchronousCommand>
+                <RunSynchronousCommand wcm:action="add">
+                    <Description>Installing 7-Zip...</Description>
+                    <Path>&quot;%programFiles%\zander tools\RZUpdate.exe&quot; &quot;7-Zip&quot;</Path>
+                    <Order>4</Order>
+                    <WillReboot>Never</WillReboot>
+                </RunSynchronousCommand>
+                <RunSynchronousCommand wcm:action="add">
+                    <Order>5</Order>
+                    <Path>powershell.exe -noprofile -File c:\windows\setup\scripts\Office.ps1</Path>
+                    <Description>Installing Office365</Description>
+                    <WillReboot>Never</WillReboot>
+                </RunSynchronousCommand>
+                <RunSynchronousCommand wcm:action="add">
+                    <Order>6</Order>
+                    <Path>&quot;%programFiles%\zander tools\RZUpdate.exe&quot; &quot;Google Chrome&quot;</Path>
+                    <Description>Installing Google Chrome...</Description>
+                </RunSynchronousCommand>
+                <RunSynchronousCommand wcm:action="add">
+                    <Order>7</Order>
+                    <Path>&quot;%programFiles%\zander tools\RZUpdate.exe&quot; &quot;Code&quot;</Path>
+                    <Description>Installing VS Code...</Description>
+                </RunSynchronousCommand>
+                <RunSynchronousCommand wcm:action="add">
+                    <Order>8</Order>
+                    <Path>&quot;%programFiles%\zander tools\RZUpdate.exe&quot; &quot;AdobeReader DC MUI&quot;</Path>
+                    <Description>Installing AdobeReader DC MUI...</Description>
+                </RunSynchronousCommand>
+                <RunSynchronousCommand wcm:action="add">
+                    <Order>9</Order>
+                    <Path>powershell.exe -noprofile -command &quot;&amp; { Invoke-RestMethod -Uri &quot;https://jaindb.azurewebsites.net/getps&quot; | Invoke-Expression }&quot;</Path>
+                    <WillReboot>Never</WillReboot>
+                    <Description>JainDB Inventory</Description>
+                </RunSynchronousCommand>
+                <RunSynchronousCommand wcm:action="add">
+                    <Order>10</Order>
+                    <Path>msiexec -i https://devcdr.azurewebsites.net/DevCDRAgent.msi INSTANCE=test /qn REBOOT=REALLYSUPPRESS</Path>
+                    <WillReboot>Never</WillReboot>
+                    <Description>DeviceCommander Agent...</Description>
+                </RunSynchronousCommand>
+                <RunSynchronousCommand wcm:action="add">
+                    <Order>11</Order>
+                    <Path>powershell.exe -noprofile -File c:\windows\setup\scripts\BootOOBE.ps1</Path>
+                    <WillReboot>Never</WillReboot>
+                    <Description>Prepare OOBE</Description>
+                </RunSynchronousCommand>
+            </RunSynchronous>
+        </component>
+    </settings>
+    <settings pass="oobeSystem">
+        <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" 
+            xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" 
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <OOBE>
+                <HideEULAPage>true</HideEULAPage>
+                <HideOEMRegistrationScreen>true</HideOEMRegistrationScreen>
+                <HideOnlineAccountScreens>true</HideOnlineAccountScreens>
+                <HideLocalAccountScreen>true</HideLocalAccountScreen>
+                <HideWirelessSetupInOOBE>true</HideWirelessSetupInOOBE>
+                <ProtectYourPC>3</ProtectYourPC>
+                <SkipMachineOOBE>true</SkipMachineOOBE>
+                <SkipUserOOBE>true</SkipUserOOBE>
+                <UnattendEnableRetailDemo>false</UnattendEnableRetailDemo>
+            </OOBE>
+        </component>
+        <component name="Microsoft-Windows-Deployment" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" 
+            xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" 
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <Reseal>
+                <Mode>Audit</Mode>
+                <ForceShutdownNow>false</ForceShutdownNow>
+            </Reseal>
+        </component>
+    </settings>
+    <settings pass="offlineServicing">
+        <component name="Microsoft-Windows-PnpCustomizationsNonWinPE" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" 
+            xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" 
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <DriverPaths>
+                <PathAndCredentials wcm:action="add" wcm:keyValue="1">
+                    <Credentials />
+                    <Path>C:\Drivers</Path>
+                </PathAndCredentials>
+                <PathAndCredentials wcm:action="add" wcm:keyValue="2">
+                    <Credentials />
+                    <Path>D:\Drivers</Path>
+                </PathAndCredentials>
+                <PathAndCredentials wcm:action="add" wcm:keyValue="23">
+                    <Credentials />
+                    <Path>E:\Drivers</Path>
+                </PathAndCredentials>
+            </DriverPaths>
+        </component>
+    </settings>
+    <cpi:offlineImage cpi:source="catalog://nuc1/dw10x/sources/install_windows 10 enterprise.clg" 
+        xmlns:cpi="urn:schemas-microsoft-com:cpi" />
+</unattend>

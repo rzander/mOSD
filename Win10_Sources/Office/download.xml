@@ -1,0 +1,15 @@
+<Configuration>
+    <Add OfficeClientEdition="64" Channel="Deferred">
+        <Product ID="O365ProPlusRetail">
+            <Language ID="de-de" />
+	    <Language ID="en-us" />
+	    <Language ID="fr-fr" />
+	    <Language ID="it-it" />
+            <ExcludeApp ID="Publisher" />
+            <ExcludeApp ID="Groove" />
+            <ExcludeApp ID="Access" />
+        </Product>
+    </Add>
+    <Logging Level="Standard" />
+    <Display Level="None" AcceptEULA="TRUE" />
+</Configuration>
