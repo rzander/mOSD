@@ -205,7 +205,7 @@
                 </RunSynchronousCommand>
                 <RunSynchronousCommand wcm:action="add">
                     <Order>10</Order>
-                    <Path>msiexec -i https://devcdr.azurewebsites.net/DevCDRAgent.msi INSTANCE=test /qn REBOOT=REALLYSUPPRESS</Path>
+                    <Path>&quot;%programFiles%\zander tools\RZUpdate.exe&quot; &quot;DevCDRAgent&quot;</Path>
                     <WillReboot>Never</WillReboot>
                     <Description>DeviceCommander Agent...</Description>
                 </RunSynchronousCommand>
