@@ -29,3 +29,5 @@ Because it's:
   * just follow the [Quick Start](Quick Start) guide. 
 * fully unattended
   * An end user will be able to rebuild a client.
+
+### read more on: https://rzander.azurewebsites.net/modern-os-deployment-mosd/
