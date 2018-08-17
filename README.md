@@ -26,6 +26,8 @@ Because it's:
   * useful to reproduce Issues from Corp. Images (without any GPO's etc.)
   * performance benchmarks (compare an OutOfBox W10 vs your corporate W10)
 * Easy to create
-  * just follow the [Quick Start](Quick Start) guide. 
+  * just follow the [Quick Start](#quick-start) guide. 
 * fully unattended
   * An end user will be able to rebuild a client.
+
+### read more on: https://rzander.azurewebsites.net/modern-os-deployment-mosd/
