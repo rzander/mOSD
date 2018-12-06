@@ -1,0 +1,13 @@
+{
+    "CloudAssignedTenantId":  "ed425802-1186-44de-8823-a4a57d140a28",
+    "Version":  2049,
+    "Comment_CloudAssignedOobeConfig":  "0x7FFFFFFF",
+    "Comment_Version":  "0x801",
+    "Comment_File":  "Profile AutoPilot",
+    "CloudAssignedAadServerData":  "{\"ZeroTouchConfig\":{\"CloudAssignedTenantUpn\":\"\",\"CloudAssignedTenantDomain\":\"zander.ch\"}}",
+    "CloudAssignedOobeConfig":  30,
+    "CloudAssignedDomainJoinMethod":  0,
+    "ZtdCorrelationId":  "7F9E6025-1E13-45F3-BF82-A3E8C5B59EAC",
+    "CloudAssignedLockdownConfig":  1,
+    "CloudAssignedTenantDomain":  "zander.ch"
+}

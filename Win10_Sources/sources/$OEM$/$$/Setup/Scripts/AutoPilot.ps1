@@ -1,3 +1,5 @@
+exit 0
+
 #Azure Automation Webhook URI
 $uri = "https://s2events.azure-automation.net/webhooks?token=IzxFg%2baOung4RWr8w45SF8WfHRot5RmIwIsnVP9ltkg%3d"
 
