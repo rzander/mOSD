@@ -1,5 +1,6 @@
 {
     "CloudAssignedTenantId":  "ed425802-1186-44de-8823-a4a57d140a28",
+    "CloudAssignedDeviceName":  "Z-%SERIAL%",
     "Version":  2049,
     "Comment_CloudAssignedOobeConfig":  "0x7FFFFFFF",
     "Comment_Version":  "0x801",
