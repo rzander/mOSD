@@ -1,10 +1,10 @@
 {
-    "ProductName": "DevCDRAgent",
+    "ProductName": "DevCDRAgentCore",
     "Manufacturer": "Zander Tools",
     "Description": "",
     "Shortname": "DevCDRAgent",
     "ProductURL": "https://github.com/rzander/DevCDR",
-    "ProductVersion": "0.9.0.12",
+    "ProductVersion": "1.0.0.16",
     "Image": [
         137,
         80,
@@ -1247,19 +1247,19 @@
         96,
         130
     ],
-    "MSIProductID": "{6A151C9B-0F4D-48D8-A9D4-FDA6481B24C1}",
+    "MSIProductID": "{CC1B3F35-4E56-403D-B7DB-345160BEC87D}",
     "Architecture": "X64",
-    "PSUninstall": "$proc = (Start-Process -FilePath \"msiexec.exe\" -ArgumentList \"/x {6A151C9B-0F4D-48D8-A9D4-FDA6481B24C1} /qb! REBOOT=REALLYSUPPRESS\" -Wait -PassThru);$proc.WaitForExit();$ExitCode = $proc.ExitCode",
-    "PSDetection": "[System.Version](Get-Item \"$($env:ProgramFiles)\\DevCDRAgent\\DevCDRAgent.exe\").VersionInfo.FileVersion -ge [System.Version]\"0.9.0.12\"",
-    "PSInstall": "$proc = (Start-Process -FilePath \"msiexec.exe\" -ArgumentList \"/i `\"DevCDRAgent.msi`\" /qn ALLUSERS=2 INSTANCE=test ENDPOINT=https://devcdr.azurewebsites.net/Chat REBOOT=REALLYSUPPRESS\" -Wait -PassThru);$proc.WaitForExit();$ExitCode = $proc.ExitCode",
+    "PSUninstall": "$proc = (Start-Process -FilePath \"msiexec.exe\" -ArgumentList \"/x {CC1B3F35-4E56-403D-B7DB-345160BEC87D} /qb! REBOOT=REALLYSUPPRESS\" -Wait -PassThru);$proc.WaitForExit();$ExitCode = $proc.ExitCode",
+    "PSDetection": "[System.Version](Get-Item \"$($env:ProgramFiles)\\DevCDRAgentCore\\DevCDRAgentCore.exe\").VersionInfo.FileVersion -ge [System.Version]\"1.0.0.16\"",
+    "PSInstall": "$proc = (Start-Process -FilePath \"msiexec.exe\" -ArgumentList \"/i `\"DevCDRAgentCore.msi`\" /qn ALLUSERS=2 ENDPOINT=https://itnetxdevcdr.azurewebsites.net/chat REBOOT=REALLYSUPPRESS\" -Wait -PassThru);$proc.WaitForExit();$ExitCode = $proc.ExitCode",
     "PSPreReq": "[Environment]::Is64BitProcess",
     "PSPreInstall": "",
     "PSPostInstall": "",
-    "ContentID": "rzDevCDRAgent",
+    "ContentID": "909fe0a0-aa3b-4a6d-8801-4ec0eaf5c6ea",
     "Files": [
         {
-            "URL": "https://devcdr.azurewebsites.net/DevCDRAgent.msi",
-            "FileName": "DevCDRAgent.msi",
+            "URL": "https://devcdrcore.azurewebsites.net/DevCDRAgentCore.msi",
+            "FileName": "DevCDRAgentCore.msi",
             "FileHash": "fdecff173c9ece56047f277e9e5a2d779bf809ac",
             "HashType": "X509"
         }
