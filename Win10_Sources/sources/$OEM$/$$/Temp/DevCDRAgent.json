@@ -1251,7 +1251,7 @@
     "Architecture": "X64",
     "PSUninstall": "$proc = (Start-Process -FilePath \"msiexec.exe\" -ArgumentList \"/x {CC1B3F35-4E56-403D-B7DB-345160BEC87D} /qb! REBOOT=REALLYSUPPRESS\" -Wait -PassThru);$proc.WaitForExit();$ExitCode = $proc.ExitCode",
     "PSDetection": "[System.Version](Get-Item \"$($env:ProgramFiles)\\DevCDRAgentCore\\DevCDRAgentCore.exe\").VersionInfo.FileVersion -ge [System.Version]\"1.0.0.16\"",
-    "PSInstall": "$proc = (Start-Process -FilePath \"msiexec.exe\" -ArgumentList \"/i `\"DevCDRAgentCore.msi`\" /qn ALLUSERS=2 ENDPOINT=https://itnetxdevcdr.azurewebsites.net/chat REBOOT=REALLYSUPPRESS\" -Wait -PassThru);$proc.WaitForExit();$ExitCode = $proc.ExitCode",
+    "PSInstall": "$proc = (Start-Process -FilePath \"msiexec.exe\" -ArgumentList \"/i `\"DevCDRAgentCore.msi`\" /qn ALLUSERS=2 ENDPOINT=https://devcdr.azurewebsites.net/chat REBOOT=REALLYSUPPRESS\" -Wait -PassThru);$proc.WaitForExit();$ExitCode = $proc.ExitCode",
     "PSPreReq": "[Environment]::Is64BitProcess",
     "PSPreInstall": "",
     "PSPostInstall": "",
