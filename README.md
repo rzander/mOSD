@@ -8,6 +8,7 @@ If you want to see **mOSD** (modern OSD) in action, just do:
 * **download mOSD.exe** from https://github.com/rzander/mOSD/releases/latest and copy it into the extracted ISO folder.
 * **run mOSD.exe** to extract the content from the file.
 * **rename** autounattend_[**your language**].xml to **autounattend.xml**.
+* **update Autopilot Profile** Create Autopilot Profile According to https://www.petervanderwoude.nl/post/offline-windows-autopilot-deployment-profile/ and Update in "sources\$OEM$\$$\provisioning\Autopilot"
 * **start** rzTools\CreateISO.cmd as admin to create a new c:\W10.iso
 * **use** rzTools\\[rufus.exe](https://rufus.akeo.ie) to create a bootable USB stick from the c:\W10.iso
 * **boot** W10.ISO or the created USB Stick...
